@@ -1,0 +1,1 @@
+const people =['shakib', 'tamim', 'mashraafee', 'nasir the boy!']
