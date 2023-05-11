@@ -10,3 +10,4 @@
 
 const anyOne=require('./people');
 console.log(anyOne);
+anyOne.test()
