@@ -20,6 +20,25 @@ let fs=require('fs');
 // Asynchronous way:::
 const data =fs.readFile('myfile.txt',(err,data)=>{
     // console.log(err);
-    console.log(data.toString());
+    // console.log(data.toString()); 
 });
-console.log("Asynchronous hobe eita");
+// console.log("Asynchronous hobe eita");
+
+
+
+
+// Event Module:::::::::::::
+
+let events=require('events');
+let eventEmitter =new events.EventEmitter();
+
+
+
+
+eventEmitter.on('screamingOut', function(period){
+    console.log(`A scream is detected ${period}`);
+});
+
+setTimeout(() => {
+    eventEmitter.emit('screamingOut','we have to scream now, why? why? why? why?')
+}, 2000);
