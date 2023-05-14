@@ -29,16 +29,15 @@ const data =fs.readFile('myfile.txt',(err,data)=>{
 
 // Event Module:::::::::::::
 
-let events=require('events');
-let eventEmitter =new events.EventEmitter();
 
 
+const School=require('./school');
+const SchoolBoy = new School();
 
 
-eventEmitter.on('screamingOut', function(period){
-    console.log(`A scream is detected ${period}`);
-});
+SchoolBoy.on('screaming', ({name,period,advice})=>{
+    console.log(`Now all of us gonna be sreaming. okay? ${period} ${name} ` );
+}) 
 
-setTimeout(() => {
-    eventEmitter.emit('screamingOut','we have to scream now, why? why? why? why?')
-}, 2000);
+
+SchoolBoy.startPeriod()
