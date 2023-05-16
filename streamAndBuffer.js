@@ -1,36 +1,16 @@
-const http =require('http');
+const file=require('fs');
 
-const server =http.createServer((req,res)=>{
+const ourReadStream =file.createReadStream(`${__dirname}/bigdata.txt`);
+const ourWriteStream =file.createWriteStream(`${__dirname}/outPutData.txt`);
 
-    if(req.url==='/'){
-        res.write("Hellow programmers...");
-    res.write("<html><head><title>Form</title></head></html>");
-    
-    res.end()
-    }
+ourReadStream.on('data', (chunk)=>{
 
-    else if(req.url ==='/aboutUs'){
-        res.write("Hey programmers, you are now in ABOUT US section");
-        res.end();
-    }
-    else{
-        res.write("Not Found::::::: 404!!");
-        res.end()
-    }
-});
-
-server.listen(3000);
-
-
-
-console.log('listening on port 3000')
-
-// const file=require('fs');
-
-// const ourReadStream =file.createReadStream(`${__dirname}/bigdata.txt`);
-
-// ourReadStream.on('data', (data)=>{
-//     console.log(data.toString());
-// })
+    file.writeFile(chunk)
+})
 
 // console.log('Hellow shobai ke...');
+
+file.writeFile('example.txt', 'Hello, world!', (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });

@@ -22,9 +22,6 @@ const server =http.createServer((req,res)=>{
 
 server.listen(3000);
 
-// server.on('connection',(socket)=>{
-//     console.log("we are getting"
-//     );
-// })
+
 
 console.log('listening on port 3000')
